@@ -12,11 +12,20 @@
     <div class="bd-example">
       <?php if(isset($_SESSION['err'])){
         ?>
-        <div class="alert alert-warning text-center alertsmargin" role="alert">
+        <div class="alert alert-danger text-center alertsmargin" role="alert">
           <strong>
             <?php
             echo $_SESSION['err'];
             unset($_SESSION['err']);
+             ?>
+          </strong>
+        </div>
+      <?php }else if(isset($_SESSION['inf'])){ ?>
+        <div class="alert alert-warning text-center alertsmargin" role="alert">
+          <strong>
+            <?php
+            echo $_SESSION['inf'];
+            unset($_SESSION['inf']);
              ?>
           </strong>
         </div>

@@ -63,7 +63,7 @@ if(!empty($_SESSION['user'])){
             $upd->bind_param("sssssissiii", $name, $surname, $age, $email, $password, $admin, $position, $salary, $blocked, $deleted, $userid);
             $upd->execute();
             $_SESSION['user'] = $email;
-            // $_SESSION['inf'] = 'Your data have been successfuly changed!';
+            $_SESSION['inf'] = 'Your data has been successfuly changed!';
             header('location: ../user_edit.php');
           };
         };

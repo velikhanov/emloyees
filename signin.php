@@ -12,7 +12,7 @@
   <div class="container text-center">
     <?php if(isset($_SESSION['err'])){
       ?>
-      <div class="alert alert-warning text-center alertsmargin" role="alert">
+      <div class="alert alert-danger text-center alertsmargin" role="alert">
         <strong>
           <?php
           echo $_SESSION['err'];
