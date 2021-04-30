@@ -18,7 +18,7 @@
             echo $_SESSION['err'];
             unset($_SESSION['err']);
             if (isset($_SESSION['inf'])) {
-              unset($_SESSION['if']);
+              unset($_SESSION['inf']);
             };
              ?>
           </strong>
