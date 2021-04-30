@@ -1,0 +1,25 @@
+.section{
+  min-height: 100vh;
+}
+.table{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+input, select, option{
+  text-align: center;
+  border: 1px solid #000;
+}
+input:focus, select:focus, option:focus{
+  outline: 0;
+}
+.pswchange{
+  display: none;
+}
+.pswclbtn{
+  position: absolute;
+  right: 15px;
+  top: 55%;
+  z-index: 100;
+}
