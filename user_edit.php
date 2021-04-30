@@ -17,6 +17,9 @@
             <?php
             echo $_SESSION['err'];
             unset($_SESSION['err']);
+            if (isset($_SESSION['inf'])) {
+              unset($_SESSION['if']);
+            };
              ?>
           </strong>
         </div>
