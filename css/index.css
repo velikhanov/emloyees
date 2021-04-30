@@ -1,0 +1,35 @@
+#main{
+  position: relative;
+  min-height: 100vh;
+}
+h1{
+  margin-bottom: 0;
+}
+.carousel-inner img{
+  max-height: 100vh;
+  height: 100%;
+  background-color:rgba(0,0,0,.3);
+}
+.text-about{
+  color: #fff;
+  line-height: 1.55;
+  font-size: 18px;
+}
+.main-text {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  z-index: 1000;
+}
+.carousel-item:after {
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background:rgba(0,0,0,0.8);
+}
+.sliderTextSmall{
+  padding: 10px 10px 0 10px;
+}
