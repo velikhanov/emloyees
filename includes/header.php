@@ -1,7 +1,7 @@
 <header class="header fixed-top" id="header">
       <nav class="navbar navbar-expand-md navbar-light">
         <div class="container">
-        <a class="navbar-brand">
+        <a href="/" class="navbar-brand">
           <img class="logo" src="img/e.png" alt="Logo">
         </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
