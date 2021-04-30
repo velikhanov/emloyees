@@ -32,7 +32,7 @@
              Welcome to my test project!
            </h1>
            <h3 class="sliderTextSmall text-white mb-3">
-             If you want to try all the permissions with administrator rights, register and let me take it, I will issue them to you, or use:<br><br>
+             If you want to try all the permissions with administrator rights, register and let me know, I will issue them to you, or use:<br><br>
              <strong>E-Mail: test@gmail.com</strong><br>
              <strong>Password: 12345</strong>
            </h3>
