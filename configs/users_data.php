@@ -29,9 +29,11 @@ if(!empty($_SESSION['user'])){
         $email = !empty($_POST['email'])?$_POST['email']:$_SESSION['user'];
         if(!empty($_POST['oldpass'])){
           if(!password_verify($_POST['oldpass'], $existuser['password'])){
+            $password = $existuser['password'];
             $_SESSION['err'] = 'Wrong old password!';
             header('location: ../user_edit.php');
           }else if($_POST['password_1'] !== $_POST['password_2']){
+            $password = $existuser['password'];
             $_SESSION['err'] = 'Passwords must match!';
             header('location: ../user_edit.php');
           }else{
@@ -39,6 +41,7 @@ if(!empty($_SESSION['user'])){
           };
         }else{
           $password = $existuser['password'];
+          exit($password);
         };
         $admin = $existuser['admin'];
         if(!empty($_POST['position'])){

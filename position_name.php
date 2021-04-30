@@ -39,9 +39,34 @@
                 <input type="hidden" name="id" value="<?= $admnpos['id']; ?>">
               </td>
             </tr>
+
+
+
+<tr>
+  <div id="inputFormRow">
+      <div class="input-group mb-3">
+            <input type="text" name="properties[][key]" value="" class="form-control m-input ml-3" placeholder="Key" autocomplete="off">
+            <input type="text" name="properties[][value]" value="" class="form-control m-input ml-3" placeholder="Value" autocomplete="off">
+        <div class="input-group-append ml-3">
+            <button id="removeRow" type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+  </div>
+
+<input type="hidden" id="icount" value="">
+</tr>
+
+
+
+
+
+
             <?php };
             $connection->close();
              ?>
+
+                                 <div id="newRow"></div>
+                                 <button id="addRow" type="button" class="btn btn-info">Add field</button>
             <tr>
               <td colspan="2">
                 <input type="submit" class="btn btn-success" value="Save">
@@ -57,5 +82,6 @@
 
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/addinput.js"></script>
 </body>
 </html>
