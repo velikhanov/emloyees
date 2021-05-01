@@ -57,6 +57,16 @@
           <img src="img/gallery/thmb/img_3.jpg" alt="Third image">
         </a>
     <!-- End -->
+    <!-- Begining -->
+        <a href="img/gallery/full/img_4.jpg">
+          <img src="img/gallery/thmb/img_4.jpg" alt="Third image">
+        </a>
+    <!-- End -->
+    <!-- Begining -->
+        <a href="img/gallery/full/img_5.jpg">
+          <img src="img/gallery/thmb/img_5.jpg" alt="Third image">
+        </a>
+    <!-- End -->
   </div>
   <?php require "includes/footer.php" ?>
 

@@ -8,9 +8,6 @@ body{
 h1{
   margin-bottom: 0;
 }
-li{
-  list-style: none;
-}
 .carousel-inner img{
   max-height: 100vh;
   height: 100%;
