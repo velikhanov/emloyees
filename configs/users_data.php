@@ -2,10 +2,6 @@
 require_once "dbconnect.php";
 require_once "is_admin.php";
 // $current_user = isset($_SESSION['user']) ? $_SESSION['user'] : '';
-if(empty($_SESSION['user'])){
-  header("location: ../signin.php", true, 301);
-  exit;
-};
 if(!empty($_SESSION['user'])){
   $sql = $connection->prepare("SELECT * FROM workers WHERE email=? LIMIT 1");
   $sql->bind_param("s", $_SESSION['user']);

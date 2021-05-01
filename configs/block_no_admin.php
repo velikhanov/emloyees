@@ -9,8 +9,5 @@ if(!empty($_SESSION['user'])){
     header("location: ../personal_area.php", true, 301);
     exit;
   };
-}else{
-  header("location: ../signin.php", true, 301);
-  exit;
 };
 ?>

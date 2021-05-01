@@ -1,5 +1,8 @@
 <?php
-if(!empty($_SESSION['user'])){
+ if(empty($_SESSION['user'])){
+   header("location: ../employees/signin.php", true, 301);
+   exit;
+ }else{
   $sql = $connection->prepare("SELECT admin, blocked, deleted FROM workers WHERE email=? LIMIT 1");
   $sql->bind_param("s", $_SESSION['user']);
   $sql->execute();
@@ -56,5 +59,5 @@ if(!empty($_SESSION['user'])){
         unset($_SESSION['is_admin']);
       };
     };
-};
+ };
 ?>

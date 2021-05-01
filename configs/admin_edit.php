@@ -2,10 +2,7 @@
 require_once "dbconnect.php";
 require_once "is_admin.php";
 require_once "block_no_admin.php";
-if(empty($_SESSION['user'])){
-  header("location: ../signin.php", true, 301);
-  exit;
-};
+
 if(!empty($_SESSION['user'])){
   $sql = $connection->prepare("SELECT * FROM workers WHERE id=?");
   $sql->bind_param("i", $_GET['id']);
@@ -35,7 +32,7 @@ if(!empty($_SESSION['user'])){
           if($_POST['password_1'] !== $_POST['password_2']){
             $password = $existuser['password'];
             $_SESSION['err'] = 'Passwords must match!';
-            header('location: ../user_edit.php', true, 301);
+            header('location: ../admin_edit.php?id='.$existuser['id'], true, 301);
             exit;
           }else{
             $password = password_hash($_POST['password_1'], PASSWORD_DEFAULT);

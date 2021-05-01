@@ -2,10 +2,6 @@
 require_once "dbconnect.php";
 require_once "is_admin.php";
 require_once "block_no_admin.php";
-if(empty($_SESSION['user'])){
-  header("location: ../signin.php", true, 301);
-  exit;
-};
 
   $pos_name = $connection->prepare("SELECT * FROM position");
   $pos_name->execute();
