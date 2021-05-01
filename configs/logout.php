@@ -11,7 +11,8 @@ if($_POST['token']==$_SESSION['token']){
   if(!empty($_SESSION['is_admin'])){
       unset($_SESSION['is_admin']);
   }
-  header('location: ../signin.php');
+  header('location: ../signin.php', true, 301);
+  exit;
 }else{
 
   echo "Error checking CSRF token! Please try again later or contact the administration!";

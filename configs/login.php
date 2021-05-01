@@ -21,7 +21,8 @@ if (empty($_SESSION['token'])) {
         };
         $_SESSION['err'] = "Access denied because your account has been blocked and queued for deletion! If you think this is unlawful, contact the administration!";
         $_SESSION['old_login'] = $_POST['email'];
-        header('location: ../signin.php');
+        header('location: ../signin.php', true, 301);
+        exit;
       }else if($user['admin'] !== 2 && $user['deleted'] === 1){
         if(!empty($_SESSION['user'])){
           unset($_SESSION['user']);
@@ -31,7 +32,8 @@ if (empty($_SESSION['token'])) {
         };
         $_SESSION['err'] = "Access denied because your account has been blocked and queued for deletion! If you think this is unlawful, contact the administration!";
         $_SESSION['old_login'] = $_POST['email'];
-        header('location: ../signin.php');
+        header('location: ../signin.php', true, 301);
+        exit;
       }else if($user['admin'] !== 2 && $user['blocked'] === 1){
         if(!empty($_SESSION['user'])){
           unset($_SESSION['user']);
@@ -41,7 +43,8 @@ if (empty($_SESSION['token'])) {
         };
         $_SESSION['err'] = "Access denied because your account has been blocked! If you think this is unlawful, contact the administration!";
         $_SESSION['old_login'] = $_POST['email'];
-        header('location: ../signin.php');
+        header('location: ../signin.php', true, 301);
+        exit;
       }else{
       if (isset($user) && password_verify($_POST['password'], $user['password'])){
         $_SESSION['user'] = $_POST['email'];
@@ -64,11 +67,13 @@ if (empty($_SESSION['token'])) {
           };
         };
         if(isset($_SESSION['old_login'])){unset($_SESSION['old_login']);}else{'';};
-        header('location: ../personal_area.php');
+        header('location: ../personal_area.php', true, 301);
+        exit;
       } else {
         $_SESSION['err'] = 'Wrong login or password!';
         $_SESSION['old_login'] = $_POST['email'];
-        header('location: ../signin.php');
+        header('location: ../signin.php', true, 301);
+        exit;
       };
       $sql->free_result();
       // $user->free_result();
@@ -82,6 +87,7 @@ if (empty($_SESSION['token'])) {
   };
 };
   if(isset($_SESSION['user'])){
-    header("location: ../personal_area.php");
+    header("location: ../personal_area.php", true, 301);
+    exit;
   };
 ?>

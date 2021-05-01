@@ -14,7 +14,8 @@ if(!empty($_SESSION['user'])){
       unset($_SESSION['is_admin']);
     };
     $_SESSION['err'] = "Access denied because your account has been blocked and queued for deletion! If you think this is unlawful, contact the administration!";
-    header('location: ../signin.php');
+    header('location: ../signin.php', true, 301);
+    exit;
   }else if($is_admin['admin'] !== 2 && $is_admin['deleted'] === 1){
     if(!empty($_SESSION['user'])){
       unset($_SESSION['user']);
@@ -23,7 +24,8 @@ if(!empty($_SESSION['user'])){
       unset($_SESSION['is_admin']);
     };
       $_SESSION['err'] = "Access denied because your account has been blocked and queued for deletion! If you think this is unlawful, contact the administration!";
-      header('location: ../signin.php');
+      header('location: ../signin.php', true, 301);
+      exit;
     }else if($is_admin['admin'] !== 2 && $is_admin['blocked'] === 1){
       if(!empty($_SESSION['user'])){
         unset($_SESSION['user']);
@@ -32,7 +34,8 @@ if(!empty($_SESSION['user'])){
         unset($_SESSION['is_admin']);
       };
       $_SESSION['err'] = "Access denied because your account has been blocked! If you think this is unlawful, contact the administration!";
-      header('location: ../signin.php');
+      header('location: ../signin.php', true, 301);
+      exit;
     };
 
     if(($is_admin['admin']) !== 0){

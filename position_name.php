@@ -24,25 +24,32 @@
           <?php }; ?>
         <form action="configs/pos_name.php" method="POST">
           <table class="table table-success table-striped w-75 text-center">
-              <tbody>
-
+          <tbody>
             <tr>
-              <td colspan="2">
+              <td colspan="3">
                 <a class="btn btn-info" href="admin_users_list.php"><i class="fas fa-backward"></i> Cancel</a>
               </td>
             </tr>
           <?php while($admnpos = $admnposdb->fetch_assoc()) { ?>
+          <div id="inputFormRow">
             <tr>
               <td>
-                <input type="text" name="position_name" value="<?= $admnpos['position_name'] ?>">
-                <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
-                <input type="hidden" name="id" value="<?= $admnpos['id']; ?>">
+                <?= $admnpos['id']; ?>
               </td>
+                <td>
+                  <input type="text" name="position_name[]" value="<?= $admnpos['position_name'] ?>">
+                </td>
+                <td>
+                  <div class="input-group-append ml-3">
+                      <button id="removeRow" type="button" class="btn btn-danger">Delete</button>
+                  </div>
+                </td>
             </tr>
+          </div>
 
 
 
-<tr>
+<!-- <tr>
   <div id="inputFormRow">
       <div class="input-group mb-3">
             <input type="text" name="properties[][key]" value="" class="form-control m-input ml-3" placeholder="Key" autocomplete="off">
@@ -53,8 +60,7 @@
       </div>
   </div>
 
-<input type="hidden" id="icount" value="">
-</tr>
+</tr> -->
 
 
 
@@ -64,11 +70,16 @@
             <?php };
             $connection->close();
              ?>
-
-                                 <div id="newRow"></div>
-                                 <button id="addRow" type="button" class="btn btn-info">Add field</button>
+             <div id="newRow">
+             </div>
+             <tr>
+               <td colspan="3">
+                 <button id="addRow" type="button" class="btn btn-info">Add field</button>
+               </td>
+             </tr>
             <tr>
-              <td colspan="2">
+              <td colspan="3">
+                <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
                 <input type="submit" class="btn btn-success" value="Save">
               </td>
             </tr>

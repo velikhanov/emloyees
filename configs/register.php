@@ -13,17 +13,21 @@ if (empty($_SESSION['token'])) {
       if($_POST['name'] == NULL){
         $_SESSION['err'] = "Name field if required!";
         $_SESSION['old_register_name'] = $_POST['name'];
-        header('location: ../signup.php');
+        header('location: ../signup.php', true, 301);
+        exit;
       }else if($_POST['email'] == NULL){
         $_SESSION['err'] = "E-mail field is required!";
         $_SESSION['old_register_email'] = $_POST['email'];
-        header('location: ../signup.php');
+        header('location: ../signup.php', true, 301);
+        exit;
       }else if($_POST['password_1'] == NULL || $_POST['password_2'] == NULL){
         $_SESSION['err'] = "Fields password and password confirm are required!";
-        header('location: ../signup.php');
+        header('location: ../signup.php', true, 301);
+        exit;
       }else if($_POST['password_1'] != $_POST['password_2']){
         $_SESSION['err'] = "Passwords must match!";
-        header('location: ../signup.php');
+        header('location: ../signup.php', true, 301);
+        exit;
       }else{
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -38,7 +42,8 @@ if (empty($_SESSION['token'])) {
           $_SESSION['err'] = "This E-mail already exist!";
           $_SESSION['old_register_name'] = $name;
           $_SESSION['old_register_email'] = $email;
-          header('location: ../signup.php');
+          header('location: ../signup.php', true, 301);
+          exit;
         };
       }else{
         $sql = $connection->prepare("INSERT INTO workers (name, email, password) VALUES (?, ?, ?)");
@@ -47,7 +52,8 @@ if (empty($_SESSION['token'])) {
         $_SESSION['user'] = $email;
         unset($_SESSION['old_register_name']);
         unset($_SESSION['old_register_email']);
-        header("location: ../personal_area.php");
+        header("location: ../personal_area.php", true, 301);
+        exit;
       };
       $sql->close();
       $connection->close();
@@ -60,6 +66,7 @@ if (empty($_SESSION['token'])) {
   };
 };
   if(isset($_SESSION['user'])){
-    header("location: ../personal_area.php");
+    header("location: ../personal_area.php", true, 301);
+    exit;
   };
 ?>

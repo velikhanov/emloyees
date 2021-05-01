@@ -3,7 +3,8 @@ require_once "dbconnect.php";
 require_once "is_admin.php";
 require_once "block_no_admin.php";
 if(empty($_SESSION['user'])){
-  header("location: ../signin.php");
+  header("location: ../signin.php", true, 301);
+  exit;
 };
 if(!empty($_SESSION['user'])){
   $sql = $connection->prepare("SELECT * FROM workers WHERE id=?");
@@ -32,8 +33,10 @@ if(!empty($_SESSION['user'])){
         $email = !empty($_POST['email'])?$_POST['email']:$existuser['email'];
         if(!empty($_POST['password_1'])){
           if($_POST['password_1'] !== $_POST['password_2']){
+            $password = $existuser['password'];
             $_SESSION['err'] = 'Passwords must match!';
-            header('location: ../user_edit.php');
+            header('location: ../user_edit.php', true, 301);
+            exit;
           }else{
             $password = password_hash($_POST['password_1'], PASSWORD_DEFAULT);
           };
@@ -65,14 +68,15 @@ if(!empty($_SESSION['user'])){
         if($existuser){
           if($existuser['email'] !== $email && $eml['email'] === $email){
             $_SESSION['err'] = "This E-mail already exist!";
-            header('location: ../admin_edit.php?id='.$existuser['id']);
-
+            header('location: ../admin_edit.php?id='.$existuser['id'], true, 301);
+            exit;
           }else{
             $upd = $connection->prepare("UPDATE workers SET name=?, surname=?, age=?, email=?, password=?, admin=?, position=?, salary=?, blocked=?, deleted=? WHERE id=?");
             $upd->bind_param("sssssissiii", $name, $surname, $age, $email, $password, $admin, $position, $salary, $blocked, $deleted, $userid);
             $upd->execute();
             $_SESSION['inf'] = 'Data has been successfuly changed!';
-            header('location: ../admin_edit.php?id='.$existuser['id']);
+            header('location: ../admin_edit.php?id='.$existuser['id'], true, 301);
+            exit;
           };
         };
       };

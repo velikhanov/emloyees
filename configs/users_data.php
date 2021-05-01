@@ -3,7 +3,8 @@ require_once "dbconnect.php";
 require_once "is_admin.php";
 // $current_user = isset($_SESSION['user']) ? $_SESSION['user'] : '';
 if(empty($_SESSION['user'])){
-  header("location: ../signin.php");
+  header("location: ../signin.php", true, 301);
+  exit;
 };
 if(!empty($_SESSION['user'])){
   $sql = $connection->prepare("SELECT * FROM workers WHERE email=? LIMIT 1");
@@ -31,17 +32,18 @@ if(!empty($_SESSION['user'])){
           if(!password_verify($_POST['oldpass'], $existuser['password'])){
             $password = $existuser['password'];
             $_SESSION['err'] = 'Wrong old password!';
-            header('location: ../user_edit.php');
+            header('location: ../user_edit.php', true, 301);
+            exit;
           }else if($_POST['password_1'] !== $_POST['password_2']){
             $password = $existuser['password'];
             $_SESSION['err'] = 'Passwords must match!';
-            header('location: ../user_edit.php');
+            header('location: ../user_edit.php', true, 301);
+            exit;
           }else{
             $password = password_hash($_POST['password_1'], PASSWORD_DEFAULT);
           };
         }else{
           $password = $existuser['password'];
-          exit($password);
         };
         $admin = $existuser['admin'];
         if(!empty($_POST['position'])){
@@ -60,14 +62,16 @@ if(!empty($_SESSION['user'])){
         if($existuser){
           if($_SESSION['user'] !== $email && $eml['email'] === $email){
             $_SESSION['err'] = "This E-mail already exist!";
-            header('location: ../user_edit.php');
+            header('location: ../user_edit.php', true, 301);
+            exit;
           }else{
             $upd = $connection->prepare("UPDATE workers SET name=?, surname=?, age=?, email=?, password=?, admin=?, position=?, salary=?, blocked=?, deleted=? WHERE id=?");
             $upd->bind_param("sssssissiii", $name, $surname, $age, $email, $password, $admin, $position, $salary, $blocked, $deleted, $userid);
             $upd->execute();
             $_SESSION['user'] = $email;
             $_SESSION['inf'] = 'Your data has been successfuly changed!';
-            header('location: ../user_edit.php');
+            header('location: ../user_edit.php', true, 301);
+            exit;
           };
         };
       };

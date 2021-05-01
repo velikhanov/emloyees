@@ -5,9 +5,10 @@
 <head>
   <?php require "includes/head.php" ?>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/baguetteBox.min.css">
   <title>Employees</title>
 </head>
-<body style="background-color: #fff;">
+<body>
 
   <?php require "includes/header.php" ?>
   <section id="main">
@@ -40,9 +41,27 @@
     </div>
      <!--  -->
   </section>
+   <div class="gallery">
+    <!-- Begining -->
+        <a href="img/gallery/full/img_1.jpg">
+          <img src="img/gallery/thmb/img_1.jpg" alt="First image">
+        </a>
+    <!-- End -->
+    <!-- Begining -->
+        <a href="img/gallery/full/img_2.jpg">
+          <img src="img/gallery/thmb/img_2.jpg" alt="Second image">
+        </a>
+    <!-- End -->
+    <!-- Begining -->
+        <a href="img/gallery/full/img_3.jpg">
+          <img src="img/gallery/thmb/img_3.jpg" alt="Third image">
+        </a>
+    <!-- End -->
+  </div>
   <?php require "includes/footer.php" ?>
 
 <script src="js/bootstrap.min.js"></script>
 <script src="js/main.js"></script>
+<script src="js/baguetteBox.min.js"></script>
 </body>
 </html>
