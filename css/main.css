@@ -23,6 +23,7 @@ body{
 }
 .navbar-light .navbar-nav .nav-link{
   color: #fff;
+  font-family: 'Playfair Display', serif;
   font-weight: bold;
   background-color: #000;
   border-radius: 10px;
@@ -159,17 +160,34 @@ footer{
   background-color: #000;
   height: 150px;
 }
+.mycontacts{
+  font-family: 'Roboto Slab', serif;
+  padding-top: 10px;
+  color: #fff;
+}
 @media only screen and (max-width: 1000px),
 only screen and (max-device-width: 1000px){
   footer{
     height: 27vh;
   }
 }
+@media only screen and (max-width: 769px),
+only screen and (max-device-width: 769px){
+  .navbar-light .navbar-nav .nav-link{
+    margin: 50px auto;
+  }
+  .navbar-light .navbar-nav .nav-link:not(:last-child){
+    margin-right: 0;
+  }
+  .navbar-light .navbar-nav .nav-link:not(:first-child){
+    margin-top: 10px;
+  }
+}
 @media only screen and (max-width: 580px),
 only screen and (max-device-width: 580px){
-.card{
-  margin: 0;
-}
+  .card{
+    margin: 0;
+  }
 }
 @media only screen and (max-width: 470px),
 only screen and (max-device-width: 470px){

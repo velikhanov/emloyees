@@ -46,6 +46,8 @@
       </main>
   </div>
 </section>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
 <!-- <script src="js/cursor_pos_register.js"></script> -->
 </body>
 </html>

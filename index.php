@@ -1,5 +1,4 @@
-<?php include "configs/dbconnect.php" ?>
-<?php include "configs/is_admin.php" ?>
+<?php include "configs/index.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

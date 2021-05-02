@@ -1,6 +1,6 @@
-document.querySelector(".animated-icon2").onclick=function(e){
+document.querySelector(".navbar-toggler").onclick=function(e){
   e.preventDefault();
-  this.classList.toggle("open");
+  document.querySelector(".animated-icon2").classList.toggle("open");
 };
 if(document.getElementById('logout_btn')){
   document.getElementById('logout_btn').onclick = function(e){
