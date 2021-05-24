@@ -1,13 +1,42 @@
 <?php
 require_once "dbconnect.php";
 require_once "is_admin.php";
-require_once "block_no_admin.php";
 
 if(!empty($_SESSION['user'])){
-  $sql = $connection->prepare("SELECT * FROM workers WHERE id=?");
-  $sql->bind_param("i", $_GET['id']);
+require_once "block_no_admin.php";
+  $sql = $connection->prepare("SELECT * FROM workers WHERE id=? AND email!=? AND admin!=?");
+  $ceo = 2;
+  $sql->bind_param("isi", $_GET['id'], $_SESSION['user'], $ceo);
   $sql->execute();
   $admindb = $sql->get_result();
+
+  $sql2 = $connection->prepare("SELECT email, admin FROM workers WHERE id=?");
+  $ceo = 2;
+  $sql2->bind_param("i", $_GET['id']);
+  $sql2->execute();
+  $a = $sql2->get_result();
+  $t = $a->fetch_assoc();
+  if($t['email'] === $_SESSION['user']){
+    $_SESSION['err'] = 'If you want to edit your details, go to the "Personal area" tab!';
+    header('location: ../admin_users_list.php', true, 301);
+    exit;
+  }else if($t['admin'] === 2){
+    $_SESSION['err'] = 'You cannot edit the data of the main admin!';
+    header('location: ../admin_users_list.php', true, 301);
+    exit;
+  };
+  $a->free_result();
+  $sql3 = $connection->prepare("SELECT admin FROM workers WHERE email=?");
+  $sql3->bind_param("s", $_SESSION['user']);
+  $sql3->execute();
+  $b = $sql3->get_result();
+  $d = $b->fetch_assoc();
+  if($t['admin'] === 1 && $d['admin'] !== 2){
+    $_SESSION['err'] = 'You cannot edit the data of other administrators!';
+    header('location: ../admin_users_list.php', true, 301);
+    exit;
+  };
+  $b->free_result();
 
   $admnpos = $connection->prepare("SELECT * FROM position");
   $admnpos->execute();

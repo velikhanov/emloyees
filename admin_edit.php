@@ -40,7 +40,7 @@
               <tr>
                 <td colspan="2">
                   <a class="btn btn-info" href="admin_users_list.php"><i class="fas fa-backward"></i> Cancel</a>
-                  <!-- <a class="btn btn-info" href="position_name.php"><i class="fas fa-edit"></i> Edit positions</a> -->
+                  <a class="btn btn-info" href="position_name.php"><i class="fas fa-edit"></i> Edit positions</a>
                 </td>
               </tr>
               <tr>

@@ -1,6 +1,8 @@
 <?php
 require_once "dbconnect.php";
 require_once "is_admin.php";
+
+if(!empty($_SESSION['user'])){
 require_once "block_no_admin.php";
 
   $pos_name = $connection->prepare("SELECT * FROM position");
@@ -22,4 +24,5 @@ require_once "block_no_admin.php";
       echo "Error checking CSRF token! Please try again later or contact the administration!";
     };
   };
+};
 ?>

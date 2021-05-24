@@ -31,47 +31,23 @@
               </td>
             </tr>
           <?php while($admnpos = $admnposdb->fetch_assoc()) { ?>
-          <div id="inputFormRow">
             <tr>
               <td>
                 <?= $admnpos['id']; ?>
               </td>
                 <td>
-                  <input type="text" name="position_name[]" value="<?= $admnpos['position_name'] ?>">
+                  <input type="text" name="position_name[]" value="<?= $admnpos['position_name']; ?>">
                 </td>
                 <td>
                   <div class="input-group-append ml-3">
-                      <button id="removeRow" type="button" class="btn btn-danger">Delete</button>
+                      <button type="button" class="removeRow btn btn-danger">Delete</button>
                   </div>
                 </td>
             </tr>
-          </div>
-
-
-
-<!-- <tr>
-  <div id="inputFormRow">
-      <div class="input-group mb-3">
-            <input type="text" name="properties[][key]" value="" class="form-control m-input ml-3" placeholder="Key" autocomplete="off">
-            <input type="text" name="properties[][value]" value="" class="form-control m-input ml-3" placeholder="Value" autocomplete="off">
-        <div class="input-group-append ml-3">
-            <button id="removeRow" type="button" class="btn btn-danger">Delete</button>
-        </div>
-      </div>
-  </div>
-
-</tr> -->
-
-
-
-
-
-
             <?php };
             $connection->close();
              ?>
-             <div id="newRow">
-             </div>
+             <tr id="newRow"></tr>
              <tr>
                <td colspan="3">
                  <button id="addRow" type="button" class="btn btn-info">Add field</button>
@@ -80,6 +56,7 @@
             <tr>
               <td colspan="3">
                 <input type="hidden" name="token" value="<?= $_SESSION['token']; ?>">
+                <input type="hidden" name="lastid" value="<?= $admnposdb->num_rows; ?>">
                 <input type="submit" class="btn btn-success" value="Save">
               </td>
             </tr>

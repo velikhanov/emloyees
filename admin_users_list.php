@@ -36,7 +36,7 @@
           </tr>
         </thead>
           <tbody>
-              <?php while ($users_list = $users_listdb->fetch_assoc()) { ?>
+            <?php while ($users_list = $users_listdb->fetch_assoc()) { ?>
               <tr>
                 <td><?= $users_list['id']; ?></td>
                 <td><?= $users_list['name']; ?></td>
