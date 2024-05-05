@@ -40,7 +40,6 @@
               <tr>
                 <td colspan="2">
                   <a class="btn btn-info" href="admin_users_list.php"><i class="fas fa-backward"></i> Cancel</a>
-                  <a class="btn btn-info" href="position_name.php"><i class="fas fa-edit"></i> Edit positions</a>
                 </td>
               </tr>
               <tr>
@@ -73,9 +72,9 @@
                 <th scope="row">Status</th>
                 <td>
                 <select name="admin">
-                    <option value="<?= $is_admin['admin'] === 2 ? 2 : 0;?>" <?= $is_admin['admin'] === 0 ? 'selected' : NULL; ?>>Regular user</option>
-                    <option value="<?= $is_admin['admin'] === 2 ? 2 : 1;?>" <?= $is_admin['admin'] === 1 ? 'selected' : NULL; ?>>Admin</option>
-                    <option value="<?= $is_admin['admin'] === 2 ? 2 : 2;?>" <?= $is_admin['admin'] === 2 ? 'selected' : NULL; ?> disabled>Hello, CEO!</option>
+                  <option value="<?= $is_admin['admin'] === 2 ? 2 : 0;?>" <?= $is_admin['admin'] === 0 ? 'selected' : NULL; ?>>Regular user</option>
+                  <option value="<?= $is_admin['admin'] === 2 ? 2 : 1;?>" <?= $is_admin['admin'] === 1 ? 'selected' : NULL; ?>>Admin</option>
+                  <option value="<?= $is_admin['admin'] === 2 ? 2 : 2;?>" <?= $is_admin['admin'] === 2 ? 'selected' : NULL; ?> disabled>Hello, CEO!</option>
                 </select>
               </td>
               </tr>
